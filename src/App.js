@@ -55,7 +55,7 @@ class App extends React.Component {
               <div className='form-inline'>
                 <Form.Control
                   type="text"
-                  placeholder="comman, separated, list"
+                  placeholder="comma, separated, list"
                   onChange={(e)=> this.setState({searchValue: e.target.value})}
                   value={this.state.searchValue}
                 />
