@@ -1,4 +1,4 @@
-Cat Facts
+Recipe Help
 =========
 
 In modern web applications, communication between the frontend application that is runing on a persons phone, or in their browser and the backend servrer happens using JSON objects.  The server makes several URLs available that the front end can then send requests to in order to retrieve information and update records.
@@ -14,7 +14,7 @@ There are many publically available and free APIs available for us to practice w
 
 Project Description
 ======================
-We've choosen to build an application around the recipepuppy.com api.  Its a list of recipes that our users will be able to search by ingredients to get ideas about dinner
+We've choosen to build an application around the food2fork.com api.  Its a list of recipes that our users will be able to search by ingredients to get ideas about dinner
 
 Planning
 ============
