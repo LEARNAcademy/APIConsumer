@@ -120,45 +120,48 @@ Here's the finished application.  Notice that we switched from using a <ListGrou
 ```Javascript
 import React from 'react';
 import {
+  Alert,
   Card,
   Form,
-  Image,
   Jumbotron,
   Button,
-  ListGroup,
 } from 'react-bootstrap'
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      recipes: [],
-      searchValue: ''
+      recipes: [], // Keeps track of our list of recipes
+      searchValue: '', // Its a controlled form input
+      error: null // If we get an error from the API request, it gets put here
     }
+  }
 
-    this.getRecipes()
+  componentDidMount = () =>{
+    this.getRecipes() //Kicks off initial list of recipes
   }
 
   search = ()=>{
-    this.getRecipes(this.state.searchValue)
+    this.getRecipes(this.state.searchValue) // When a user clicks 'search', re-send the request to the api, with search values
   }
 
-  getRecipes = (q)=>{
-    this.setState({ recipes: [] })
+  getRecipes = (q)=>{ //Method to query the API
+    this.setState({ recipes: [] }) //Clears the recipe list
     const apiKey='a6894f29755de2438c2b9fb553b2931d'
-    var searchUrl = "https://www.food2fork.com/api/search?key=a6894f29755de2438c2b9fb553b2931d"
-    if(q){
-            searchUrl = `${searchUrl}&q=${q}`
+    var searchUrl = `https://www.food2fork.com/api/search?key=${apiKey}`
+    if(q){ //if user has entered a search value, we add it to the request URL
+      searchUrl = `${searchUrl}&q=${q}`
     }
-    fetch(searchUrl)
+    fetch(searchUrl)  //Fetch returns a promise
     .then((resp)=> {
-            return resp.json()
+      if(resp.status !== 200){ throw({message: "Could not perform search. Please try again."}) }
+      return resp.json() //We need to grab the JSON from the response
     })
     .then( (payload) => {
-            const{ recipes } = payload
-            this.setState({recipes})
+      const{ recipes } = payload
+      this.setState({recipes}) //Finally, we can add the found recipes to our list, triggering a re-render
     })
-    .catch((error) => console.log("Error:", error))
+    .catch((error) => this.setState({error}))
   }
   render(){
     return (
@@ -187,9 +190,12 @@ class App extends React.Component {
         </Jumbotron>
         <div className="d-flex justify-content-center">
           <div className='col-sm-5'>
-            {this.state.recipes.map((recipe)=>{
+            {this.state.error &&
+              <Alert variant="danger">{this.state.error.message}</Alert>
+            }
+            {this.state.recipes.map((recipe, index)=>{
               return(
-                <Card>
+                <Card key={index}>
                   <Card.Img variant="top" src={recipe.image_url} />
                   <Card.Body>
                     <Card.Title>{recipe.title}</Card.Title>
@@ -197,6 +203,7 @@ class App extends React.Component {
                       href={recipe.source_url}
                       className='btn btn-outline-primary'
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {recipe.publisher}
                     </a>
