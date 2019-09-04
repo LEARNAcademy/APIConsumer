@@ -44,7 +44,7 @@ Find a nice bootstrap theme you would like to use.  For example,  checkout [thes
 Now we're ready to add react-boostrap.  From the terminal:
 
 ```bash
-$ yarn install react-bootstrap
+$ yarn add react-bootstrap
 -- OR --
 $ npm install react-bootstrap
 ```
