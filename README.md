@@ -3,6 +3,9 @@ Recipe Help
 
 In modern web applications, communication between the frontend application that is runing on a persons phone, or in their browser and the backend servrer happens using JSON objects.  The server makes several URLs available that the front end can then send requests to in order to retrieve information and update records.
 
+[![YouTube](http://img.youtube.com/vi/LNOGzVkopL4/0.jpg)](https://www.youtube.com/watch?v=LNOGzVkopL4)
+
+
 Public API's
 ================
 There are many publically available and free APIs available for us to practice with, and even build into real applications if we choose.  API stands for "Application Programatic Interface".  Below are a few websites you can go to discover them.  For this exersise, we're going to choose an API that doesn't require authentication, and then build a React application around it.
