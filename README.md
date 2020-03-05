@@ -1,7 +1,7 @@
 Recipe Help
 =========
 
-In modern web applications, communication between the frontend application that is runing on a persons phone, or in their browser and the backend servrer happens using JSON objects.  The server makes several URLs available that the front end can then send requests to in order to retrieve information and update records.
+In modern web applications, communication between the frontend application that is running on a persons phone, or in their browser and the backend servrer happens using JSON objects.  The server makes several URLs available that the front end can then send requests to in order to retrieve information and update records.
 
 [![YouTube](http://img.youtube.com/vi/LNOGzVkopL4/0.jpg)](https://www.youtube.com/watch?v=LNOGzVkopL4)
 
