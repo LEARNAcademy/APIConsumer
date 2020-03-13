@@ -225,3 +225,36 @@ export default App;
 ```
 
 ![finished](./public/finished-api-example.png)
+
+
+```Javascript
+import React from 'react';
+import './App.css';
+
+class App extends React.Component{
+  constructor(props){
+    super(props)
+      this.state = {
+        myIP: 0
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(payload => this.setState({ myIP: payload.ip }))
+  }
+
+  render(){
+    return(
+      <div>
+        <p>{ this.state.myIP }</p>
+      </div>
+    )
+  }
+}
+
+export default App;
+```
+
+https://ipapi.co/api/?shell#complete-location5
