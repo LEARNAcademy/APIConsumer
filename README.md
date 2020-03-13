@@ -227,6 +227,8 @@ export default App;
 ![finished](./public/finished-api-example.png)
 
 
+# Simple fetch for IP address
+
 ```Javascript
 import React from 'react';
 import './App.css';
@@ -255,6 +257,31 @@ class App extends React.Component{
 }
 
 export default App;
+```
+
+this is the full JSON object (example):
+
+```Javascript
+{
+    "ip": "208.67.222.222",
+    "city": "San Francisco",
+    "region": "California",
+    "region_code": "CA",
+    "country": "US",
+    "country_name": "United States",
+    "continent_code": "NA",
+    "in_eu": false,
+    "postal": "94107",
+    "latitude": 37.7697,
+    "longitude": -122.3933,
+    "timezone": "America/Los_Angeles",
+    "utc_offset": "-0400",
+    "country_calling_code": "+1",
+    "currency": "USD",
+    "languages": "en-US,es-US,haw,fr",
+    "asn": "AS36692",
+    "org": "OpenDNS, LLC"
+}
 ```
 
 https://ipapi.co/api/?shell#complete-location5
